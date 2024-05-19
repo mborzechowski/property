@@ -1,5 +1,5 @@
 "use client";
-import ClipLoader from "react-spinners/ClipLoader";
+import { ClipLoader } from "react-spinners";
 const override = {
   display: "block",
   margin: "100px auto",
