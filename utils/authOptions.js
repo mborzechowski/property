@@ -19,11 +19,12 @@ export const authOptions = {
     ],
     callbacks: {
         // on successful signin
-        async signIn({ profile }) {
+        async signIn({ profile, user, account }) {
             // connect to database
             await connectDB();
             // checking if user exist
             const userExist = await User.findOne({ email: profile.email })
+            console.log('signIn callback:', { user, account, profile })
             // If not, then add user to database
             if (!userExist) {
                 // Truncate user name if too long
@@ -41,11 +42,12 @@ export const authOptions = {
 
         },
         // modifies the session object
-        async session({ session }) {
+        async session({ session, token }) {
             // Get user from database
             const user = await User.findOne({ email: session.user.email })
             // assign user id to the session
             session.user.id = user._id.toString();
+            console.log('session callback:', { session, token });
 
             return session
 
