@@ -5,6 +5,7 @@ import { fetchProperty } from "@/utils/requests";
 import PropertyHeaderImage from "@/components/PropertyHeaderImage";
 import Link from "next/link";
 import PropertyDetails from "@/components/PropertyDetails";
+import PropertyImages from "@/components/PropertyImages";
 import { FaArrowLeft } from "react-icons/fa";
 import Spinner from "@/components/Spinner";
 
@@ -122,7 +123,7 @@ const PropoertyPage = () => {
                       <div className="mb-4">
                         <label
                           className="block text-gray-700 text-sm font-bold mb-2"
-                          for="message"
+                          htmlFor="message"
                         >
                           Message:
                         </label>
@@ -147,6 +148,7 @@ const PropoertyPage = () => {
               </div>
             </div>
           </section>
+          <PropertyImages images={property.images} />
         </>
       )}
     </>
