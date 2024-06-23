@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useSession } from "next-auth/react";
 import profileDefault from "@/assets/images/profile.png";
 import Spinner from "@/components/Spinner";
+import { toast } from "react-toastify";
 
 const ProfilePage = () => {
   const { data: session } = useSession();
@@ -59,13 +60,13 @@ const ProfilePage = () => {
         );
         setProperties(updatedProperties);
 
-        alert("Property Deleted");
+        toast.success("Property Deleted");
       } else {
-        alert(`Failed to delete the property`);
+        toast.error(`Failed to delete the property`);
       }
     } catch (error) {
       console.log(error);
-      alert(`Failed to delete the property`);
+      toast.error(`Failed to delete the property`);
     }
   };
 
@@ -122,7 +123,7 @@ const ProfilePage = () => {
                     </div>
                     <div className="mt-2">
                       <Link
-                        href={`/property/${property._id}/edit`}
+                        href={`/properties/${property._id}/edit`}
                         className="bg-blue-500 text-white px-3 py-3 rounded-md mr-2 hover:bg-blue-600"
                       >
                         Edit
