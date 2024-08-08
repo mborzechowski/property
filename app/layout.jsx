@@ -5,6 +5,8 @@ import AuthProvider from '@/components/AuthProvider';
 import { ToastContainer } from 'react-toastify';
 import { GlobalProvider } from '@/contex/GlobalContex';
 import 'react-toastify/dist/ReactToastify.css';
+import 'photoswipe/dist/photoswipe.css';
+
 export const metadata = {
   title: 'ProportyPulse | Find The Perfect Rental',
   description: 'Find The Perfect Rental',
